@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 import { FC, memo, useCallback } from "react";
 import { InputGridItemMemo } from "./InputGridItem";
 
@@ -16,31 +16,24 @@ export const InputGrid: FC<Props> = (props) => {
   );
 
   return (
-    <Paper
-      variant="outlined"
-      sx={{ padding: 2 }}
+    <Grid
+      container
+      columns={4}
+      spacing={1}
     >
-      <Grid
-        container
-        columns={4}
-        spacing={1}
-      >
-        {states.map((_, index) => (
-          <Grid
-            key={"input-grid" + index}
-            size={1}
-            sx={{
-              aspectRatio: "1/1",
-            }}
-          >
-            <InputGridItemMemo
-              selected={states[index]}
-              onClick={() => handleChange(index)}
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </Paper>
+      {states.map((_, index) => (
+        <Grid
+          key={"input-grid" + index}
+          size={1}
+          sx={{ aspectRatio: "1/1" }}
+        >
+          <InputGridItemMemo
+            selected={states[index]}
+            onClick={() => handleChange(index)}
+          />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 

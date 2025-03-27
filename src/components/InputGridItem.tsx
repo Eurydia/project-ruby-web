@@ -1,5 +1,6 @@
 import { PanoramaFishEyeRounded } from "@mui/icons-material";
 import {
+  alpha,
   CardActionArea,
   Paper,
   styled,
@@ -32,7 +33,10 @@ export const InputGridItem: FC<Props> = (props) => {
   }, [palette, selected]);
 
   const bgColorContrast = useMemo(() => {
-    return palette.getContrastText(palette.primary.main);
+    return alpha(
+      palette.getContrastText(palette.primary.main),
+      0.8
+    );
   }, [palette]);
 
   return (
