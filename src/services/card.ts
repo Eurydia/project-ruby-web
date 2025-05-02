@@ -73,19 +73,30 @@ export const stampCard = (card: CardState, pos: number) => {
   nextStates[pos] = true;
 
   let nextMoves = card.moves - 1;
-  if (isColDone(pos, nextStates)) {
+  if (
+    isColDone(pos, nextStates) &&
+    !isColDone(pos, card.states)
+  ) {
     nextMoves++;
   }
-  if (isRowDone(pos, nextStates)) {
+  if (
+    isRowDone(pos, nextStates) &&
+    !isRowDone(pos, card.states)
+  ) {
     nextMoves++;
   }
-  if (pos % 5 === 0 && isDiagonalFiveDone(nextStates)) {
+  if (
+    pos % 5 === 0 &&
+    isDiagonalFiveDone(nextStates) &&
+    !isDiagonalFiveDone(card.states)
+  ) {
     nextMoves++;
   }
   if (
     pos % 3 === 0 &&
     pos > 0 &&
-    isDiagonalThreeDone(nextStates)
+    isDiagonalThreeDone(nextStates) &&
+    !isDiagonalThreeDone(card.states)
   ) {
     nextMoves++;
   }
