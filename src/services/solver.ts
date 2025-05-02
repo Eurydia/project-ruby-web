@@ -4,7 +4,7 @@ const coordinateToPos = (row: number, col: number) => {
 
 export const getRowsWithMissingCell = (
   missingCount: number,
-  state: Boolean[]
+  state: boolean[]
 ) => {
   const result: number[] = [];
   for (let rowIndex = 0; rowIndex < 4; rowIndex++) {
@@ -24,7 +24,7 @@ export const getRowsWithMissingCell = (
 
 export const getColsWithMissingCell = (
   missingCount: number,
-  state: Boolean[]
+  state: boolean[]
 ) => {
   const result: number[] = [];
   for (let colIndex = 0; colIndex < 4; colIndex++) {
