@@ -42,6 +42,7 @@ export const InputGridItem: FC<Props> = (props) => {
   return (
     <StyledPaper variant="outlined">
       <StyledCardActionArea
+        disableRipple
         onClick={onClick}
         sx={{
           backgroundColor: bgColor,
